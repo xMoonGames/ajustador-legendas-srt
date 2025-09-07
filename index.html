@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustador de Legendas SRT</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-closed-captioning"></i> Ajustador de Legendas SRT</h1>
+            <p>Ferramenta completa para sincronização, tradução e análise de legendas</p>
+        </header>
+
+        <main>
+            <!-- Seção de Upload e Informações -->
+            <section class="upload-section">
+                <div class="file-upload-area" id="fileUploadArea">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Selecione um arquivo SRT</h3>
+                    <p>Arraste e solte ou clique para escolher</p>
+                    <input type="file" id="fileInput" accept=".srt" hidden>
+                    <button class="btn btn-primary" id="selectFileBtn">
+                        <i class="fas fa-folder-open"></i> Selecionar Arquivo
+                    </button>
+                </div>
+
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-info-header">
+                        <h3><i class="fas fa-info-circle"></i> Informações da Legenda</h3>
+                        <button class="btn btn-danger btn-sm" id="removeFileBtn">
+                            <i class="fas fa-times"></i> Remover Legenda
+                        </button>
+                    </div>
+                    <div class="info-grid" id="infoGrid">
+                        <!-- Informações serão preenchidas dinamicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Ajuste de Tempo -->
+            <section class="time-adjustment-section">
+                <h3><i class="fas fa-clock"></i> Ajuste de Tempo</h3>
+                <div class="adjustment-controls">
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="adjustmentType" value="advance" checked>
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-backward"></i> Adiantar
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="adjustmentType" value="delay">
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-forward"></i> Atrasar
+                        </label>
+                    </div>
+                    <div class="time-input-group">
+                        <label for="timeInput">Tempo em segundos:</label>
+                        <input type="number" id="timeInput" value="0" step="1" min="0">
+                    </div>
+                    <button class="btn btn-success" id="adjustBtn" disabled>
+                        <i class="fas fa-cog"></i> Ajustar Legenda
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção de Tradução -->
+            <section class="translation-section">
+                <h3><i class="fas fa-language"></i> Tradução</h3>
+                <div class="translation-controls">
+                    <div class="translation-mode">
+                        <label class="radio-option">
+                            <input type="radio" name="translationMode" value="online" checked>
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-globe"></i> Online (Google Translate)
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="translationMode" value="offline">
+                            <span class="radio-custom"></span>
+                            <i class="fas fa-microchip"></i> Offline (Local)
+                        </label>
+                    </div>
+                    <div class="language-selection">
+                        <label for="targetLanguage">Idioma de destino:</label>
+                        <select id="targetLanguage">
+                            <option value="en">Inglês</option>
+                            <option value="es">Espanhol</option>
+                            <option value="fr">Francês</option>
+                            <option value="de">Alemão</option>
+                            <option value="it">Italiano</option>
+                            <option value="pt">Português</option>
+                            <option value="ru">Russo</option>
+                            <option value="zh-CN">Chinês (Simplificado)</option>
+                            <option value="ja">Japonês</option>
+                            <option value="ko">Coreano</option>
+                            <option value="ar">Árabe</option>
+                            <option value="tr">Turco</option>
+                            <option value="hi">Hindi</option>
+                            <option value="uk">Ucraniano</option>
+                            <option value="pl">Polonês</option>
+                            <option value="nl">Holandês</option>
+                            <option value="sv">Sueco</option>
+                            <option value="el">Grego</option>
+                            <option value="he">Hebraico</option>
+                            <option value="ro">Romeno</option>
+                            <option value="cs">Tcheco</option>
+                            <option value="hu">Húngaro</option>
+                            <option value="fi">Finlandês</option>
+                            <option value="da">Dinamarquês</option>
+                            <option value="no">Norueguês</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-warning" id="translateBtn" disabled>
+                        <i class="fas fa-language"></i> Traduzir Legenda
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção de Editor -->
+            <section class="editor-section">
+                <h3><i class="fas fa-edit"></i> Editor de Legenda</h3>
+                <div class="editor-controls">
+                    <button class="btn btn-purple" id="editBtn" disabled>
+                        <i class="fas fa-edit"></i> Editar Legenda
+                    </button>
+                    <button class="btn btn-secondary" id="saveBtn" style="display: none;">
+                        <i class="fas fa-save"></i> Salvar Alterações
+                    </button>
+                    <button class="btn btn-danger" id="cancelBtn" style="display: none;">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+                <div class="editor-container" id="editorContainer" style="display: none;">
+                    <textarea id="subtitleEditor" placeholder="Conteúdo da legenda aparecerá aqui..."></textarea>
+                </div>
+            </section>
+
+            <!-- Seção de Download -->
+            <section class="download-section" id="downloadSection" style="display: none;">
+                <h3><i class="fas fa-download"></i> Download</h3>
+                <div class="download-controls">
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <i class="fas fa-download"></i> Baixar Arquivo Modificado
+                    </button>
+                    <span class="download-info" id="downloadInfo"></span>
+                </div>
+            </section>
+
+            <!-- Modal de Progresso -->
+            <div class="modal" id="progressModal" style="display: none;">
+                <div class="modal-content">
+                    <h3 id="progressTitle">Processando...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span id="progressText">0%</span>
+                        <span id="progressTime">Estimativa: --</span>
+                    </div>
+                    <button class="btn btn-danger" id="cancelProgressBtn">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal de Confirmação -->
+            <div class="modal" id="confirmModal" style="display: none;">
+                <div class="modal-content">
+                    <h3 id="confirmTitle">Confirmar Ação</h3>
+                    <p id="confirmMessage"></p>
+                    <div class="modal-buttons">
+                        <button class="btn btn-primary" id="confirmYes">Sim</button>
+                        <button class="btn btn-secondary" id="confirmNo">Não</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Ajustador de Legendas SRT - Ferramenta completa para legendas</p>
+        </footer>
+    </div>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

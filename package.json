@@ -1,0 +1,38 @@
+{
+  "name": "ajustador-legendas-srt",
+  "version": "1.0.0",
+  "description": "Ferramenta web para sincronização, tradução e análise de arquivos de legenda SRT",
+  "main": "src/js/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx http-server . -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=/",
+    "server": "node server.js",
+    "build": "echo 'Build não necessário - site estático'",
+    "test": "echo 'Testes não implementados'",
+    "lint": "echo 'Linting não configurado'",
+    "format": "echo 'Formatação não configurada'"
+  },
+  "keywords": [
+    "subtitles",
+    "srt",
+    "translation",
+    "time-adjustment",
+    "web-app",
+    "javascript"
+  ],
+  "author": "Desenvolvedor",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SEU_USUARIO/ajustador-legendas-srt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SEU_USUARIO/ajustador-legendas-srt/issues"
+  },
+  "homepage": "https://SEU_USUARIO.github.io/ajustador-legendas-srt"
+}
