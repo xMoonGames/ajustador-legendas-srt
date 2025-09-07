@@ -1,4 +1,4 @@
-# 🎬 Ajustador de Legendas SRT
+# 🎬 Editor de Legendas SRT
 
 > Ferramenta web profissional para sincronização, tradução e análise de arquivos de legenda SRT
 
@@ -39,7 +39,7 @@ npm start
 ## 📁 Estrutura do Projeto
 
 ```
-ajustador-legendas-srt/
+editor-legendas-srt/
 ├── index.html                 # Página principal
 ├── package.json              # Configurações do projeto
 ├── README.md                 # Documentação
@@ -163,7 +163,7 @@ TRANSLATION_API: {
 1. Faça push do código para o GitHub
 2. Ative GitHub Pages nas configurações do repositório
 3. Selecione a branch `main` como fonte
-4. Acesse `https://seuusuario.github.io/ajustador-legendas-srt`
+4. Acesse `https://seuusuario.github.io/editor-legendas-srt`
 
 ### Netlify
 1. Conecte seu repositório GitHub ao Netlify
@@ -217,8 +217,8 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ## 📞 Suporte
 
 - 📧 **Email**: [seu-email@exemplo.com]
-- 🐛 **Issues**: [GitHub Issues](https://github.com/usuario/ajustador-legendas-srt/issues)
-- 📖 **Documentação**: [Wiki do Projeto](https://github.com/usuario/ajustador-legendas-srt/wiki)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/usuario/editor-legendas-srt/issues)
+- 📖 **Documentação**: [Wiki do Projeto](https://github.com/usuario/editor-legendas-srt/wiki)
 
 ---
 

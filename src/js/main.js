@@ -1,6 +1,6 @@
 /**
  * Arquivo principal da aplicação
- * Ajustador de Legendas SRT - Versão Web
+ * Editor de Legendas SRT - Versão Web
  */
 
 // Importações dos módulos

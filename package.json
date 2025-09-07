@@ -1,5 +1,5 @@
 {
-  "name": "ajustador-legendas-srt",
+  "name": "editor-legendas-srt",
   "version": "1.0.0",
   "description": "Ferramenta web para sincronização, tradução e análise de arquivos de legenda SRT",
   "main": "src/js/main.js",
@@ -29,10 +29,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SEU_USUARIO/ajustador-legendas-srt.git"
+    "url": "https://github.com/SEU_USUARIO/editor-legendas-srt.git"
   },
   "bugs": {
-    "url": "https://github.com/SEU_USUARIO/ajustador-legendas-srt/issues"
+    "url": "https://github.com/SEU_USUARIO/editor-legendas-srt/issues"
   },
-  "homepage": "https://SEU_USUARIO.github.io/ajustador-legendas-srt"
+  "homepage": "https://SEU_USUARIO.github.io/editor-legendas-srt"
 }

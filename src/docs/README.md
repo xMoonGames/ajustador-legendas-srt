@@ -1,4 +1,4 @@
-# Ajustador de Legendas SRT - Versão Web
+# Editor de Legendas SRT - Versão Web
 
 Site estático para sincronização, tradução e análise de arquivos de legenda `.srt`. Esta é a versão web do programa Python original, convertida para HTML, CSS e JavaScript.
 
